@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Bøger;
-using Biler;
-using Furniture;
+using Bøger; // Bruger bøger projected
+using Biler; // Bruger biler projected
+using Furniture; // Bruger furniture projected
 
 namespace MenuLibrary{
     public class Menu {
-        public static void HovedMenu() {
-            do {
-                Console.Clear();
-                Console.WriteLine("Vælg submenu ved at skrive tilsvarende tal eller gå ud med 18");
+        public static void HovedMenu() { // Her laver vi hovedmenuen hvor vi kan gå ind i de mange submenuer med opgaver eller stoppe proggrammet
+            do { // Vi bruger et do while loop til at lade brugeren skrive forkert også genskabe hovemenuen hvis de gør
+                Console.Clear(); // Ranser terminalen
+                Console.WriteLine("Vælg submenu ved at skrive tilsvarende tal eller gå ud med 18"); // skriver noget tekst der forklare brugeren hvad de skal gøre
                 Console.WriteLine("(1) Variabler");
                 Console.WriteLine("(2) Strings");
                 Console.WriteLine("(3) Artimetiske udtryk");
@@ -35,9 +35,9 @@ namespace MenuLibrary{
                 Console.WriteLine();
                 Console.Write("Indtast her: ");
 
-                switch (Console.ReadLine()) {
+                switch (Console.ReadLine()) { // Laver et switch statement der lader brugeren gøre hvad de fik at vide de kan gøre (gå videre til submenuer)
                     case "1":
-                        Variabler();
+                        Variabler(); // Metode der indeholder en submenu
                         break;
                     case "2":
                         Strings();
@@ -88,20 +88,20 @@ namespace MenuLibrary{
                         PublicPrivateOgProtected();
                         break;
                     case "18":
-                        Environment.Exit(0);
+                        Environment.Exit(0); // Stopper programmet
                         break;
                     default:
                         break;
                 }
             } while (true);
         }
-        public static bool Variabler() {
-            string Navn = "Søren", skriv = "";
+        public static bool Variabler() { // Den første submenu
+            string Navn = "Søren", skriv = ""; // initiere nogle variabler...
             int tal1 = 5, tal2 = 3, Alder = 16, tal = 0;
             double Kage = 23.56, Øl = 34.67, Pølse = 65.34, samlet = 0, Penge = 1234.34;
             samlet = Kage + Øl + Pølse;
             do {
-                Console.Clear();
+                Console.Clear(); // Samme som i hovemenu'en men en submenu
                 Console.WriteLine("Vælg opgave ved at skrive tilsvarende tal eller gå ud med 7");
                 Console.WriteLine("(1) Opgave 1");
                 Console.WriteLine("(2) Opgave 2");
@@ -115,17 +115,17 @@ namespace MenuLibrary{
 
                 switch (Console.ReadLine()) {
                     case "1":
-                        Console.WriteLine(tal1);
+                        Console.WriteLine(tal1); // Udskriver en variable
                         Console.WriteLine(tal2);
                         Console.ReadKey();
                         break;
                     case "2":
-                        Console.WriteLine("tal1 er " + tal1);
+                        Console.WriteLine("tal1 er " + tal1); // Udskriver noget tekst og en variable
                         Console.WriteLine("tal2 er " + tal2);
                         Console.ReadKey();
                         break;
                     case "3":
-                        Console.WriteLine("Jeg hedder " + Navn + ", er " + Alder + " år gammel og har tjent " + Penge + " kr. på at lappe cykler");
+                        Console.WriteLine("Jeg hedder " + Navn + ", er " + Alder + " år gammel og har tjent " + Penge + " kr. på at lappe cykler"); // Udskrvier mere tekst og flere variabler
                         Console.ReadKey();
                         break;
                     case "4":
@@ -135,18 +135,18 @@ namespace MenuLibrary{
                         Console.ReadKey();
                         break;
                     case "5":
-                        Console.WriteLine("Skriv dit navn");
-                        skriv = Console.ReadLine();
-                        Console.WriteLine("Skriv din alder");
-                        try {
-                            tal = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Skriv dit navn"); // Beder brugern om at skrive deres navn
+                        skriv = Console.ReadLine(); // Gemmer hvad brugeren skriver i skriv variablen
+                        Console.WriteLine("Skriv din alder"); // Beder om brugerns alder
+                        try { // bruger try til at stoppe proggrammet i at crashe hvis brugeren ikke skriver et tal i vores int
+                            tal = Convert.ToInt32(Console.ReadLine()); // Gemmer brugerens indput i tal hvis der gives en int
                         }
-                        catch (Exception) {
+                        catch (Exception) { // Hvis brugeren ikke ved hvad tal er kommer vi herned og går tilbage til submenuen
                             Console.WriteLine("Du skrev ikke et tal");
                             Console.ReadKey();
                             break;
                         }
-                        Console.WriteLine("Jeg hedder " + skriv + " og er " + tal + " år gammel.");
+                        Console.WriteLine("Jeg hedder " + skriv + " og er " + tal + " år gammel."); // Udskriver tekst og de variabler vi gemte brugeres svar i
                         Console.ReadKey();
                         break;
                     case "6":
@@ -159,12 +159,12 @@ namespace MenuLibrary{
                             Console.ReadKey();
                             break;
                         }
-                        samlet = Math.PI * Math.Pow(tal, 2);
+                        samlet = Math.PI * Math.Pow(tal, 2); // Matematik
                         Console.WriteLine("Resultated er " + samlet);
                         Console.ReadKey();
                         break;
                     case "7":
-                        return false;
+                        return false; // Går ud af submenu'en og går tilbage til hovedmenu'en
                     default:
                         break;
                 }
@@ -291,8 +291,8 @@ namespace MenuLibrary{
                     case "1":
                         Console.WriteLine(erSandt);
                         var1 = 11;
-                        erSandt = var1 > var2;
-                        Console.WriteLine(erSandt);
+                        erSandt = var1 > var2; // Bruger en bool til at tjekke om et udtryk er sandt eller falsk
+                        Console.WriteLine(erSandt); // Udskriver svaret
                         Console.ReadKey();
                         break;
                     case "2":
@@ -323,13 +323,13 @@ namespace MenuLibrary{
                 switch (Console.ReadLine()) {
                     case "1":
                         result = tal1 + tal2;
-                        if (result > 100) {
+                        if (result > 100) { // Bruger if statements til at tjekke betingelser og gøre noget hvis betingelserne er opfyldt
                             Console.WriteLine("Summen er større end 100!.");
                         }
                         else if (result < 100) {
                             Console.WriteLine("Summen er mindre end 100.");
                         }
-                        else {
+                        else { // Hvis ingen af betingelserne i de andre dele er opfyldt så køre else delen
                             Console.WriteLine("Summen er 100");
                         }
                         Console.ReadKey();
@@ -436,7 +436,7 @@ namespace MenuLibrary{
                         Console.Write("Vælg mellem rød, grøn, blå og gul: ");
                         navn = Console.ReadLine();
                         if (navn == "rød") {
-                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.BackgroundColor = ConsoleColor.Red; // Sætter bagrundsfarven til at være rød
                             Console.Clear();
                         }
                         else if (navn == "grøn") {
@@ -471,8 +471,8 @@ namespace MenuLibrary{
                         else {
                             Console.WriteLine("Velkommen til sodavandsbaren.");
                         }
-                        Thread.Sleep(10000);
-                        Console.BackgroundColor = ConsoleColor.Black;
+                        Thread.Sleep(10000); // Vent 1+ sekunder
+                        Console.BackgroundColor = ConsoleColor.Black; // Sætter farven tilbage til sort før vi går tilbage til submenu'en
                         break;
                     case "8":
                         return false;
@@ -593,7 +593,7 @@ namespace MenuLibrary{
 
                 switch (Console.ReadLine()) {
                     case "1":
-                        for (int i = 1; i < 11; i++) {
+                        for (int i = 1; i < 11; i++) { // Et forloop der udskriver 1 2 3 ... 9 10
                             Console.WriteLine(i);
                         }
                         Console.ReadKey();
@@ -704,7 +704,7 @@ namespace MenuLibrary{
                         Console.Write("Sebastian");
                         Console.ReadKey();
                         break;
-                    case "9":
+                    case "9": // I den her opgave skal brugeren kunne vælge hvor på skærmen hvor der skal laves en box og et navn skal skrives i den
                         string navn;
                         try {
                             Console.WriteLine("hvad er din start x verdi");
@@ -728,7 +728,7 @@ namespace MenuLibrary{
                         Console.Clear();
                         Console.SetCursorPosition(a, b);
                         Console.Write("-");
-                        for (int i = a; i < c; i++) {
+                        for (int i = a; i < c; i++) { // Hvert loop laver 1/4 del af kassen
                             Console.SetCursorPosition(a, b);
                             Console.Write("-");
                             a++;
@@ -749,8 +749,8 @@ namespace MenuLibrary{
                             Console.SetCursorPosition(a, b);
                             Console.Write("-");
                         }
-                        Console.SetCursorPosition((e + c) / 2 - 4, (f + d) / 2);
-                        Console.Write(navn);
+                        Console.SetCursorPosition((e + c) / 2 - 4, (f + d) / 2); // Sætter cursoren ca i midten af boxen
+                        Console.Write(navn); // Skriver navnet der
                         Console.ReadKey();
                         break;
                     case "e":
@@ -780,7 +780,7 @@ namespace MenuLibrary{
                         for (int i = 1; i < 11; i++) {
                             x = 3 * i;
                             Console.WriteLine(x);
-                            if (x == 21) {
+                            if (x == 21) { // Stopper looped tidligere end looped ellers ville
                                 break;
                             }
                         }
@@ -790,7 +790,7 @@ namespace MenuLibrary{
                     case "2":
                         x = 0;
                         y = 1;
-                        while (x < 40) {
+                        while (x < 40) { // While loop der skriver 4 tabellen til 40 men skriver ikke 16
                             x = y * 4;
                             if (x == 16) {
                                 x = 20;
@@ -856,7 +856,7 @@ namespace MenuLibrary{
                             res1 = (indkomst - 150000) * 0.5 / 100;
                             res = res + res1;
                         }
-                        Console.WriteLine($"Den tilskrevne rente er: {res:F2}");
+                        Console.WriteLine($"Den tilskrevne rente er: {res:F2}"); // F2 gør så vi får 2 komma tal med
                         Console.ReadKey();
                         break;
                     case "6":
@@ -867,7 +867,7 @@ namespace MenuLibrary{
             } while (true);
         }
         public static bool MetoderOgInstanser() {
-            Bog SherlockHolmes = new Bog("SherlockHolmes",150);
+            Bog SherlockHolmes = new Bog("SherlockHolmes",150); // Laver et object af Bog klassen
             do {
                 Console.Clear();
                 Console.WriteLine("Vælg opgave ved at skrive tilsvarende tal eller gå ud med 3");
@@ -879,12 +879,12 @@ namespace MenuLibrary{
 
                 switch (Console.ReadLine()) {
                     case "1":
-                        SherlockHolmes.PrintInfo();
+                        SherlockHolmes.PrintInfo(); // Bruger metode på det object vi lavede tidligere
                         Console.ReadKey();
                         break;
                     case "2":
-                        SherlockHolmes.HarRåd(160);
-                        SherlockHolmes.HarRåd(140);
+                        SherlockHolmes.HarRåd(160); // Bruger anden metode på object giver false + tekst
+                        SherlockHolmes.HarRåd(140); // Giver true + tekst
                         Console.ReadKey();
                         break;
                     case "3":
@@ -896,7 +896,7 @@ namespace MenuLibrary{
         }
         public static bool ReturtyperOgParametre() {
             double gas = 2.5;
-            Bil bil1 = new Bil();
+            Bil bil1 = new Bil(); // Laver et object af Bil klassen
             do {
                 Console.Clear();
                 Console.WriteLine("Vælg opgave ved at skrive tilsvarende tal eller gå ud med 5");
@@ -910,20 +910,20 @@ namespace MenuLibrary{
 
                 switch (Console.ReadLine()) {
                     case "1":
-                        bil1.StartMotor();
-                        bil1.SlukMotor();
+                        bil1.StartMotor(); // Bruger metode på objected
+                        bil1.SlukMotor(); // Bruger metode på objected
                         Console.ReadKey();
                         break;
                     case "2":
-                        bil1.FillGas(gas, false);
+                        bil1.FillGas(gas, false); // Bruger metode på objected
                         Console.ReadKey();
                         break;
                     case "3":
-                        bil1.FillGas(gas, true);
+                        bil1.FillGas(gas, true); // Bruger metode på objected
                         Console.ReadKey();
                         break;
                     case "4":
-                        Console.WriteLine(bil1.RemainingGas(gas));
+                        Console.WriteLine(bil1.RemainingGas(gas)); // Bruger metode på objected og skriver det ud
                         Console.ReadKey();
                         break;
                     case "5":
@@ -958,8 +958,8 @@ namespace MenuLibrary{
             } while (true);
         }
         public static bool Nedarvning() {
-            Chair stol = new Chair("SejStol",10);
-            Computer pc = new Computer("AzureProGamingPc", "MegetTekst");
+            Chair stol = new Chair("SejStol",10); // Laver et object af en subKlasse
+            Computer pc = new Computer("AzureProGamingPc", "MegetTekst"); // Laver et object af en anden subKlasse
             do {
                 Console.Clear();
                 Console.WriteLine("Vælg opgave ved at skrive tilsvarende tal eller gå ud med 2");
@@ -1006,7 +1006,7 @@ namespace MenuLibrary{
             } while (true);
         }
         public static bool Arrays() {
-            int[] arr = {-2,-1,0,10};
+            int[] arr = {-2,-1,0,10}; // Opretter et array med 4 int's i
             do {
                 Console.Clear();
                 Console.WriteLine("Vælg opgave ved at skrive tilsvarende tal eller gå ud med 2");
@@ -1017,9 +1017,9 @@ namespace MenuLibrary{
 
                 switch (Console.ReadLine()) {
                     case "1":
-                        Console.WriteLine(arr[arr.Length-1]);
-                        Console.WriteLine(arr[1]);
-                        Console.WriteLine(arr.Sum());
+                        Console.WriteLine(arr[arr.Length-1]); // Udskriver det sidste element i arr array'et (opgaven vi have 10)
+                        Console.WriteLine(arr[1]); // Udskriver det andet element i arrayet (opgaven vil have -1)
+                        Console.WriteLine(arr.Sum()); // Bruger .sum() til at få summen af arrayet
                         Console.ReadKey();
                         break;
                     case "2":
@@ -1030,8 +1030,8 @@ namespace MenuLibrary{
             } while (true);
         }
         public static bool GennemløbAfArrays() {
-            int[] intArray = {2, 1, 3, 5, 10, -1};
-            string[] stringArray = {"Abe", "Kat", "Ko", "Sæbe", "Alan"};
+            int[] intArray = {2, 1, 3, 5, 10, -1}; // Laver et int array
+            string[] stringArray = {"Abe", "Kat", "Ko", "Sæbe", "Alan"}; // Laver et string array
             do {
                 Console.Clear();
                 Console.WriteLine("Vælg opgave ved at skrive tilsvarende tal eller gå ud med 2");
@@ -1042,11 +1042,11 @@ namespace MenuLibrary{
 
                 switch (Console.ReadLine()) {
                     case "1":
-                        for (int i = 0; i < intArray.Length; i++) {
+                        for (int i = 0; i < intArray.Length; i++) { // Udskriver int arrayet
                             Console.Write(intArray[i] + " ");
                         }
                         Console.WriteLine();
-                        foreach (string str in stringArray) {
+                        foreach (string str in stringArray) { // Bruger foreach til at udskrive string arrayet (Det gør ikke noget forksel ville bare bruge foreach)
                             Console.Write(str + " ");
                         }
                         Console.ReadKey();
@@ -1067,7 +1067,7 @@ namespace MenuLibrary{
                 Console.WriteLine();
                 Console.Write("Indtast her: ");
 
-                switch (Console.ReadLine()) {
+                switch (Console.ReadLine()) { // Skriver nogle spørgsmål fra opgaven og svare på dem i strings
                     case "1":
                         Console.WriteLine("Hvad betyder private?");
                         Console.WriteLine("Når noget er private er det kun medlemmer af samme klasse der har adgang til den");
@@ -1076,7 +1076,7 @@ namespace MenuLibrary{
                         Console.WriteLine("Hvad betyder public?");
                         Console.WriteLine("Public lader mere eller mindre alt i programmet få adgang til den");
                         Console.WriteLine("Hvorfor har vi denne indkapsling?");
-                        Console.WriteLine("Sikkerthed så man ikke kan ændre på ting der ikke skal ændres på");
+                        Console.WriteLine("sikkerhed så man ikke kan ændre på ting der ikke skal ændres på");
                         Console.ReadKey();
                         break;
                     case "2":

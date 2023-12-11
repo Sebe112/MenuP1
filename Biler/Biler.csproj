@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9BF2AD9A-C535-4AF5-B7E9-0E715A873CC8}</ProjectGuid>
+    <ProjectGuid>{0C9071F9-ACAE-4227-857A-5E902394D1B9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MenuLibrary</RootNamespace>
-    <AssemblyName>MenuLibrary</AssemblyName>
+    <RootNamespace>Biler</RootNamespace>
+    <AssemblyName>Biler</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,22 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuLibrary.cs" />
+    <Compile Include="Bil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Biler\Biler.csproj">
-      <Project>{0c9071f9-acae-4227-857a-5e902394d1b9}</Project>
-      <Name>Biler</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Bøger\Bøger.csproj">
-      <Project>{98f317a9-49a6-4899-a383-a39c7b9b05c8}</Project>
-      <Name>Bøger</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Furniture\Furniture.csproj">
-      <Project>{3a54be8d-5dc9-48f2-aa6e-7edf8fac1351}</Project>
-      <Name>Furniture</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

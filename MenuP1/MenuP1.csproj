@@ -50,9 +50,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Biler\Biler.csproj">
+      <Project>{0c9071f9-acae-4227-857a-5e902394d1b9}</Project>
+      <Name>Biler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bøger\Bøger.csproj">
       <Project>{98f317a9-49a6-4899-a383-a39c7b9b05c8}</Project>
       <Name>Bøger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Furniture\Furniture.csproj">
+      <Project>{3a54be8d-5dc9-48f2-aa6e-7edf8fac1351}</Project>
+      <Name>Furniture</Name>
     </ProjectReference>
     <ProjectReference Include="..\MenuLibrary\MenuLibrary.csproj">
       <Project>{9bf2ad9a-c535-4af5-b7e9-0e715a873cc8}</Project>

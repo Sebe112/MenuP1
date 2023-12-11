@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuLibrary", "MenuLibrary\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bøger", "Bøger\Bøger.csproj", "{98F317A9-49A6-4899-A383-A39C7B9B05C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biler", "Biler\Biler.csproj", "{0C9071F9-ACAE-4227-857A-5E902394D1B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Furniture", "Furniture\Furniture.csproj", "{3A54BE8D-5DC9-48F2-AA6E-7EDF8FAC1351}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{98F317A9-49A6-4899-A383-A39C7B9B05C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98F317A9-49A6-4899-A383-A39C7B9B05C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98F317A9-49A6-4899-A383-A39C7B9B05C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C9071F9-ACAE-4227-857A-5E902394D1B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C9071F9-ACAE-4227-857A-5E902394D1B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C9071F9-ACAE-4227-857A-5E902394D1B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C9071F9-ACAE-4227-857A-5E902394D1B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A54BE8D-5DC9-48F2-AA6E-7EDF8FAC1351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A54BE8D-5DC9-48F2-AA6E-7EDF8FAC1351}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A54BE8D-5DC9-48F2-AA6E-7EDF8FAC1351}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A54BE8D-5DC9-48F2-AA6E-7EDF8FAC1351}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

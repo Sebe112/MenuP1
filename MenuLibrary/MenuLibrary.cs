@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Bøger;
+using Biler;
+using Furniture;
 
 namespace MenuLibrary{
-    public class Menu
-    {
-        public static void HovedMenu()
-        {
+    public class Menu {
+        public static void HovedMenu() {
             do {
                 Console.Clear();
                 Console.WriteLine("Vælg submenu ved at skrive tilsvarende tal eller gå ud med 18");
@@ -70,22 +70,22 @@ namespace MenuLibrary{
                         ReturtyperOgParametre();
                         break;
                     case "12":
-                        Console.ReadKey();
+                        Instancevariabler();
                         break;
                     case "13":
-                        Console.ReadKey();
+                        Nedarvning();
                         break;
                     case "14":
-                        Console.ReadKey();
+                        Konstruktors();
                         break;
                     case "15":
-                        Console.ReadKey();
+                        Arrays();
                         break;
                     case "16":
-                        Console.ReadKey();
+                        GennemløbAfArrays();
                         break;
                     case "17":
-                        Console.ReadKey();
+                        PublicPrivateOgProtected();
                         break;
                     case "18":
                         Environment.Exit(0);
@@ -95,8 +95,7 @@ namespace MenuLibrary{
                 }
             } while (true);
         }
-        public static bool Variabler()
-        {
+        public static bool Variabler() {
             string Navn = "Søren", skriv = "";
             int tal1 = 5, tal2 = 3, Alder = 16, tal = 0;
             double Kage = 23.56, Øl = 34.67, Pølse = 65.34, samlet = 0, Penge = 1234.34;
@@ -171,8 +170,7 @@ namespace MenuLibrary{
                 }
             } while (true);
         }
-        public static bool Strings()
-        {
+        public static bool Strings() {
             int tal = 5;
             string tekst = "hej", tekst1 = "I dag har vi den 24. December.", tekst2 = "Jeg har.", tekst3 = "kr. i banken.";
             double dec = 2.5, pris = 200.50;
@@ -217,8 +215,7 @@ namespace MenuLibrary{
                 }
             } while (true);
         }
-        public static bool AritmetiskeUdtryk()
-        {
+        public static bool AritmetiskeUdtryk() {
             int tal = 0;
             do {
                 Console.Clear();
@@ -249,8 +246,7 @@ namespace MenuLibrary{
                 }
             } while (true);
         }
-        public static bool VariablerIUdtryk()
-        {
+        public static bool VariablerIUdtryk() {
             int tal = 2, tal1 = 5, tal2 = 10, result = 0;
             double mat = 5.5, mat1 = 2.7, mat2 = 3.3, matresult = 0.0;
             do {
@@ -280,8 +276,7 @@ namespace MenuLibrary{
                 }
             } while (true);
         }
-        public static bool BoolskeVariable()
-        {
+        public static bool BoolskeVariable() {
             do {
                 int var1 = 5, var2 = 10;
                 bool erSandt = var1 > var2;
@@ -307,8 +302,7 @@ namespace MenuLibrary{
                 }
             } while (true);
         }
-        public static bool IfElseStatements()
-        {
+        public static bool IfElseStatements() {
             int tal1 = 42, tal2 = 64, result = 0, alder;
             string navn, brugernavn = "abe", password = "kat", brugernavn1, password1;
             double res;
@@ -487,8 +481,7 @@ namespace MenuLibrary{
                 }
             } while (true);
         }
-        public static bool SwitchCase()
-        {
+        public static bool SwitchCase() {
             do {
                 Console.Clear();
                 Console.WriteLine("Vælg opgave ved at skrive tilsvarende tal eller gå ud med 3");
@@ -767,8 +760,7 @@ namespace MenuLibrary{
                 }
             } while (true);
         }
-        public static bool UdvidetKontrolstrukturer()
-        {
+        public static bool UdvidetKontrolstrukturer() {
             do {
                 double antalKm,fradrag,indkomst,res,res1;
                 int x,y;
@@ -874,10 +866,8 @@ namespace MenuLibrary{
                 }
             } while (true);
         }
-        public static bool MetoderOgInstanser()
-        {
-            int penge = 0;
-            Bog SherlockHolmes = new Bog();
+        public static bool MetoderOgInstanser() {
+            Bog SherlockHolmes = new Bog("SherlockHolmes",150);
             do {
                 Console.Clear();
                 Console.WriteLine("Vælg opgave ved at skrive tilsvarende tal eller gå ud med 3");
@@ -893,8 +883,8 @@ namespace MenuLibrary{
                         Console.ReadKey();
                         break;
                     case "2":
-                        SherlockHolmes.HarRåd(150, 160);
-                        SherlockHolmes.HarRåd(150, 140);
+                        SherlockHolmes.HarRåd(160);
+                        SherlockHolmes.HarRåd(140);
                         Console.ReadKey();
                         break;
                     case "3":
@@ -904,8 +894,9 @@ namespace MenuLibrary{
                 }
             } while (true);
         }
-        public static bool ReturtyperOgParametre()
-        {
+        public static bool ReturtyperOgParametre() {
+            double gas = 2.5;
+            Bil bil1 = new Bil();
             do {
                 Console.Clear();
                 Console.WriteLine("Vælg opgave ved at skrive tilsvarende tal eller gå ud med 5");
@@ -919,18 +910,176 @@ namespace MenuLibrary{
 
                 switch (Console.ReadLine()) {
                     case "1":
+                        bil1.StartMotor();
+                        bil1.SlukMotor();
                         Console.ReadKey();
                         break;
                     case "2":
+                        bil1.FillGas(gas, false);
                         Console.ReadKey();
                         break;
                     case "3":
+                        bil1.FillGas(gas, true);
                         Console.ReadKey();
                         break;
                     case "4":
+                        Console.WriteLine(bil1.RemainingGas(gas));
                         Console.ReadKey();
                         break;
                     case "5":
+                        return false;
+                    default:
+                        break;
+                }
+            } while (true);
+        }
+        public static bool Instancevariabler() {
+            Bog bog1 = new Bog("Moby Dick",240);
+            do {
+                Console.Clear();
+                Console.WriteLine("Vælg opgave ved at skrive tilsvarende tal eller gå ud med 2");
+                Console.WriteLine("(1) Opgave 1");
+                Console.WriteLine("(2) Tilbage til hovedmenu");
+                Console.WriteLine();
+                Console.Write("Indtast her: ");
+
+                switch (Console.ReadLine()) {
+                    case "1":
+                        bog1.PrintInfo();
+                        bog1.HarRåd(300);
+                        bog1.HarRåd(200);
+                        Console.ReadKey();
+                        break;
+                    case "2":
+                        return false;
+                    default:
+                        break;
+                }
+            } while (true);
+        }
+        public static bool Nedarvning() {
+            Chair stol = new Chair("SejStol",10);
+            Computer pc = new Computer("AzureProGamingPc", "MegetTekst");
+            do {
+                Console.Clear();
+                Console.WriteLine("Vælg opgave ved at skrive tilsvarende tal eller gå ud med 2");
+                Console.WriteLine("(1) Opgave 1");
+                Console.WriteLine("(2) Tilbage til hovedmenu");
+                Console.WriteLine();
+                Console.Write("Indtast her: ");
+
+                switch (Console.ReadLine()) {
+                    case "1":
+                        stol.print();
+                        pc.print();
+                        Console.ReadKey();
+                        break;
+                    case "2":
+                        return false;
+                    default:
+                        break;
+                }
+            } while (true);
+        }
+        public static bool Konstruktors() {
+            Bog bog1 = new Bog("Yeet", 10);
+            do {
+                Console.Clear();
+                Console.WriteLine("Vælg opgave ved at skrive tilsvarende tal eller gå ud med 2");
+                Console.WriteLine("(1) Opgave 1");
+                Console.WriteLine("(2) Tilbage til hovedmenu");
+                Console.WriteLine();
+                Console.Write("Indtast her: ");
+
+                switch (Console.ReadLine()) {
+                    case "1":
+                        bog1.PrintInfo();
+                        bog1.HarRåd(15);
+                        bog1.HarRåd(5);
+                        Console.ReadKey();
+                        break;
+                    case "2":
+                        return false;
+                    default:
+                        break;
+                }
+            } while (true);
+        }
+        public static bool Arrays() {
+            int[] arr = {-2,-1,0,10};
+            do {
+                Console.Clear();
+                Console.WriteLine("Vælg opgave ved at skrive tilsvarende tal eller gå ud med 2");
+                Console.WriteLine("(1) Opgave 1");
+                Console.WriteLine("(2) Tilbage til hovedmenu");
+                Console.WriteLine();
+                Console.Write("Indtast her: ");
+
+                switch (Console.ReadLine()) {
+                    case "1":
+                        Console.WriteLine(arr[arr.Length-1]);
+                        Console.WriteLine(arr[1]);
+                        Console.WriteLine(arr.Sum());
+                        Console.ReadKey();
+                        break;
+                    case "2":
+                        return false;
+                    default:
+                        break;
+                }
+            } while (true);
+        }
+        public static bool GennemløbAfArrays() {
+            int[] intArray = {2, 1, 3, 5, 10, -1};
+            string[] stringArray = {"Abe", "Kat", "Ko", "Sæbe", "Alan"};
+            do {
+                Console.Clear();
+                Console.WriteLine("Vælg opgave ved at skrive tilsvarende tal eller gå ud med 2");
+                Console.WriteLine("(1) Opgave 1");
+                Console.WriteLine("(2) Tilbage til hovedmenu");
+                Console.WriteLine();
+                Console.Write("Indtast her: ");
+
+                switch (Console.ReadLine()) {
+                    case "1":
+                        for (int i = 0; i < intArray.Length; i++) {
+                            Console.Write(intArray[i] + " ");
+                        }
+                        Console.WriteLine();
+                        foreach (string str in stringArray) {
+                            Console.Write(str + " ");
+                        }
+                        Console.ReadKey();
+                        break;
+                    case "2":
+                        return false;
+                    default:
+                        break;
+                }
+            } while (true);
+        }
+        public static bool PublicPrivateOgProtected() {
+            do {
+                Console.Clear();
+                Console.WriteLine("Vælg opgave ved at skrive tilsvarende tal eller gå ud med 2");
+                Console.WriteLine("(1) Opgave 1");
+                Console.WriteLine("(2) Tilbage til hovedmenu");
+                Console.WriteLine();
+                Console.Write("Indtast her: ");
+
+                switch (Console.ReadLine()) {
+                    case "1":
+                        Console.WriteLine("Hvad betyder private?");
+                        Console.WriteLine("Når noget er private er det kun medlemmer af samme klasse der har adgang til den");
+                        Console.WriteLine("Hvad betyder protected?");
+                        Console.WriteLine("Protected er meget ligesom private men subklasser kan også få adgang til den");
+                        Console.WriteLine("Hvad betyder public?");
+                        Console.WriteLine("Public lader mere eller mindre alt i programmet få adgang til den");
+                        Console.WriteLine("Hvorfor har vi denne indkapsling?");
+                        Console.WriteLine("Sikkerthed så man ikke kan ændre på ting der ikke skal ændres på");
+                        Console.ReadKey();
+                        break;
+                    case "2":
                         return false;
                     default:
                         break;
